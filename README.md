@@ -1,24 +1,4 @@
-# Sprint Challenge: _Teknolojik Yemekler - SPA_
 
-## Proje Açıklaması
-
-Bu Single Page Application (SPA) projesi, geçmiş sprint boyunca öğrenilen kavramları ve teknikleri uygulamana ve bunları somut bir projede kullanmanı sağlayacak. Bu sprintte **tek sayfa uygulamalarını** (SPA) keşfettin. Sprint boyunca, **routing, formlar, ve cypress testlerini** öğrendin. Challenge skorun, bu sprint boyunca işlenen materyali kullanarak bağımsız çalışma yapabilme yeteneğinin bir göstergesi olacak. Bu projeyi de ödevlerdeki gibi tek başına yapacaksın.
-
-S8 içinde de Workintech eğitmenlerine, adeta bir teknik mülakattaymış gibi, bu projeyi sunmanı istiyoruz.
-
-- Bu sunumda, _1 dk_ içerisinde, CSS'e döktüğün arayüz; 3dk içinde geliştirdiğin React veri akışını anlatacaksın. İlk önce arayüzde nasıl bir kullanıcı deneyimi sunduğunu kısaca özetleyip, sonra altta kodların nasıl çalıştığını, nasıl bir veri akışı kurduğunu, açık bir şekilde ifade edebilmelisin.
-
-> Kısaca: 4 dk içinde, önce arayüzü anlatıp, sonra kodun nasıl
-> çalıştığını ifade edebilmelisin. Zaman kullanımı ve sunum tekniğin de değerlendirme kriterlerinde yer alıyor. Öncesinde, kendini videoya çekerek, sunum pratiği yapabilirsin.
-
-## Önemli Notlar
-
-- Her aşamada, tasarımı birebir uygulamaya çalışmalısın. Mobil versiyonu için Figma'ya bakabilirsin.
-- Önce İterasyon 1'i tamamlayıp, sonra İterasyon 2'ye geçmelisin. Proje akışı minimum zamanda, React bilgini pekiştirebilmen için tasarlandı. Plandan çıktıkça asıl önemli olan işten uzaklaşıyor olabilirsin. O yüzden ek bir şey yapma isteği gelirse not alıp, proje bitince dönmelisin.
-- Görevleri yetiştirmek için, MUTLAKA tasarımların listelendiği sırayla ilerle. Proje planından şaşma. Önceki task yetişmeden sonrakine geçtiysen ve eksik kalırsa puanın kırılabilir.
-- Metinler ve form alanı başlıklarını kendi istediğin gibi güncelleyebilirsin. Yine de kesinlikle **renkler ve yerleşimde** değişiklik istemiyoruz.
-- Sunumdan sonra dilersen sonrasında kendi portföyüne eklemeden önce için özelleştirebilirsin.
-- (IT2) Sayfalar arası veri taşırken, (sipariş formundan, sonuş sayfasına), router veya başka bir global state management aracı kullanmadan, sadece [Prop-Lifting](https://react.dev/learn/sharing-state-between-components) tekniğiyle, projenizi geliştirmenizi bekliyoruz.
 
 Not\* Bu dökümanın en sonunda da, sunumda seni değerlendireceğimiz başlıkları da bulabilirsin.
 
@@ -60,7 +40,27 @@ Proje iki zorluk aşamalı,
 ## Aşama 1: Proje Kurulumu ve İterasyon 1
 
 ### Görev 1: Proje Kurulumu
+# Sprint Challenge: _Teknolojik Yemekler - SPA_
 
+## Proje Açıklaması
+
+Bu Single Page Application (SPA) projesi, geçmiş sprint boyunca öğrenilen kavramları ve teknikleri uygulamana ve bunları somut bir projede kullanmanı sağlayacak. Bu sprintte **tek sayfa uygulamalarını** (SPA) keşfettin. Sprint boyunca, **routing, formlar, ve cypress testlerini** öğrendin. Challenge skorun, bu sprint boyunca işlenen materyali kullanarak bağımsız çalışma yapabilme yeteneğinin bir göstergesi olacak. Bu projeyi de ödevlerdeki gibi tek başına yapacaksın.
+
+S8 içinde de Workintech eğitmenlerine, adeta bir teknik mülakattaymış gibi, bu projeyi sunmanı istiyoruz.
+
+- Bu sunumda, _1 dk_ içerisinde, CSS'e döktüğün arayüz; 3dk içinde geliştirdiğin React veri akışını anlatacaksın. İlk önce arayüzde nasıl bir kullanıcı deneyimi sunduğunu kısaca özetleyip, sonra altta kodların nasıl çalıştığını, nasıl bir veri akışı kurduğunu, açık bir şekilde ifade edebilmelisin.
+
+> Kısaca: 4 dk içinde, önce arayüzü anlatıp, sonra kodun nasıl
+> çalıştığını ifade edebilmelisin. Zaman kullanımı ve sunum tekniğin de değerlendirme kriterlerinde yer alıyor. Öncesinde, kendini videoya çekerek, sunum pratiği yapabilirsin.
+
+## Önemli Notlar
+
+- Her aşamada, tasarımı birebir uygulamaya çalışmalısın. Mobil versiyonu için Figma'ya bakabilirsin.
+- Önce İterasyon 1'i tamamlayıp, sonra İterasyon 2'ye geçmelisin. Proje akışı minimum zamanda, React bilgini pekiştirebilmen için tasarlandı. Plandan çıktıkça asıl önemli olan işten uzaklaşıyor olabilirsin. O yüzden ek bir şey yapma isteği gelirse not alıp, proje bitince dönmelisin.
+- Görevleri yetiştirmek için, MUTLAKA tasarımların listelendiği sırayla ilerle. Proje planından şaşma. Önceki task yetişmeden sonrakine geçtiysen ve eksik kalırsa puanın kırılabilir.
+- Metinler ve form alanı başlıklarını kendi istediğin gibi güncelleyebilirsin. Yine de kesinlikle **renkler ve yerleşimde** değişiklik istemiyoruz.
+- Sunumdan sonra dilersen sonrasında kendi portföyüne eklemeden önce için özelleştirebilirsin.
+- (IT2) Sayfalar arası veri taşırken, (sipariş formundan, sonuş sayfasına), router veya başka bir global state management aracı kullanmadan, sadece [Prop-Lifting](https://react.dev/learn/sharing-state-between-components) tekniğiyle, projenizi geliştirmenizi bekliyoruz.
 - [ ] 1. **Create Repo From Template & Clone:**
 
   - Sağ üstteki yeşil "Use this template" butonu ile, bir kopya oluşturun. işlemi tamamlandıktan sonra, kendi GitHub hesabınızda yer alan depo bağlantısını kopyalayın.
