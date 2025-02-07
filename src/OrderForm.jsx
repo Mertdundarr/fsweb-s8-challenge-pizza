@@ -1,41 +1,52 @@
+// React ve gerekli kütüphaneler import ediliyor
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import "./css/OrderForm.css";
+import "./css/OrderForm.css"; // Stil dosyası import ediliyor
 
+// OrderForm bileşeni tanımlanıyor
 const OrderForm = () => {
-  const history = useHistory();
-  const [size, setSize] = useState("medium");
-  const [crust, setCrust] = useState("normal");
-  const [toppings, setToppings] = useState([]);
-  const [note, setNote] = useState("");
-  const [quantity, setQuantity] = useState(1);
-  const [name, setName] = useState("");
+  const history = useHistory(); // Sayfa yönlendirmesi için kullanılıyor
 
-  const basePrice = 49.90;
-  const toppingPrice = 5;
+  // State'ler tanımlanıyor
+  const [size, setSize] = useState("medium"); // Pizza boyutu
+  const [crust, setCrust] = useState("normal"); // Hamur kalınlığı
+  const [toppings, setToppings] = useState([]); // Ek malzemeler
+  const [note, setNote] = useState(""); // Sipariş notu
+  const [quantity, setQuantity] = useState(1); // Sipariş adedi
+  const [name, setName] = useState(""); // Kullanıcı adı
 
+  const basePrice = 49.90; // Pizza temel fiyatı
+  const toppingPrice = 5; // Her ek malzeme fiyatı
+
+  // Ek malzeme seçimlerini yönetir
   const handleToppingChange = (topping) => {
     if (toppings.includes(topping)) {
+      // Malzeme seçilmişse, kaldırır
       setToppings(toppings.filter(item => item !== topping));
     } else if (toppings.length < 10) {
+      // Maksimum 10 malzeme sınırı
       setToppings([...toppings, topping]);
     }
   };
 
+  // Toplam fiyatı hesaplar
   const calculateTotal = () => {
-    const toppingsTotal = toppings.length * toppingPrice;
-    return (basePrice + toppingsTotal) * quantity;
+    const toppingsTotal = toppings.length * toppingPrice; // Ek malzeme toplamı
+    return (basePrice + toppingsTotal) * quantity; // Temel fiyat ve adet ile çarpılır
   };
 
+  // Form gönderimi için işlem
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Sayfanın yenilenmesini engeller
     
+    // Kullanıcı adı ve malzeme seçim doğrulamaları
     if (name.length < 3 || toppings.length < 4 || toppings.length > 10) {
-      return;
+      return; // Şartlar sağlanmazsa işlem yapılmaz
     }
 
     try {
+      // API'ye sipariş gönderilir
       const response = await axios.post('https://reqres.in/api/pizza', {
         name,
         size,
@@ -45,15 +56,16 @@ const OrderForm = () => {
         quantity,
         total: calculateTotal()
       });
-      console.log('Sipariş özeti:', response.data);
-      history.push("/confirmation");
+      console.log('Sipariş özeti:', response.data); // Yanıt konsola yazdırılır
+      history.push("/confirmation"); // Onay sayfasına yönlendirme
     } catch (error) {
-      console.error('Hata:', error);
+      console.error('Hata:', error); // Hata yakalanır ve konsola yazdırılır
     }
   };
 
   return (
     <div className="order-form">
+      {/* Navbar */}
       <nav className="navbar">
         <div className="nav-content">
           <h1>Teknolojik Yemekler</h1>
@@ -65,11 +77,13 @@ const OrderForm = () => {
         </div>
       </nav>
 
+      {/* Başlık bölümü */}
       <div className="header-section">
         <h2>Pizzanızı Özelleştirin</h2>
         <p>En lezzetli pizzalar için doğru adrestesiniz. Dilediğiniz gibi özelleştirin!</p>
       </div>
 
+      {/* Form konteyneri */}
       <div className="form-container">
         <h2>Pizza Siparişi</h2>
         <div className="rating">
@@ -79,7 +93,9 @@ const OrderForm = () => {
         </div>
         <p>Lezzetli pizzanızı özelleştirin</p>
 
+        {/* Sipariş formu */}
         <form onSubmit={handleSubmit}>
+          {/* Ad girişi */}
           <div className="name-section">
             <h3>Adınız</h3>
             <input
@@ -93,6 +109,7 @@ const OrderForm = () => {
             />
           </div>
 
+          {/* Boyut ve hamur seçimi */}
           <div className="top-options">
             <div className="size-section">
               <h3>Boyut Seç</h3>
@@ -126,11 +143,14 @@ const OrderForm = () => {
             </div>
           </div>
 
+          {/* Ek malzemeler */}
           <div className="toppings-section">
             <h3>Ek Malzemeler</h3>
             <p>En az 4, en fazla 10 malzeme seçmelisiniz</p>
             <div className="toppings-grid">
-              {["Sucuk", "Sosis", "Jambon", "Pepperoni", "Mantar", "Zeytin", "Mısır", "Biber", "Soğan", "Domates", "Ananas", "Ton Balığı", "Kaşar", "Mozarella"].map((topping) => (
+              {[
+                "Sucuk", "Sosis", "Jambon", "Pepperoni", "Mantar", "Zeytin", "Mısır", "Biber", "Soğan", "Domates", "Ananas", "Ton Balığı", "Kaşar", "Mozarella"
+              ].map((topping) => (
                 <label key={topping} className="topping-item">
                   <input
                     type="checkbox"
@@ -144,16 +164,17 @@ const OrderForm = () => {
             </div>
           </div>
 
+          {/* Sipariş notu */}
           <div className="note-section">
-              <h3>Sipariş Notu</h3>
-              <textarea
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                placeholder="Özel isteklerinizi buraya yazabilirsiniz..."
-              />
-            </div>
+            <h3>Sipariş Notu</h3>
+            <textarea
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              placeholder="Özel isteklerinizi buraya yazabilirsiniz..."
+            />
+          </div>
 
-
+          {/* Alt bölüm */}
           <div className="bottom-section">
             <div className="quantity-section">
               <h3>Adet</h3>
@@ -164,7 +185,7 @@ const OrderForm = () => {
               </div>
             </div>
 
-          
+            {/* Sipariş özeti */}
             <div className="order-summary">
               <div className="summary-item">
                 <span>Seçimler:</span>
